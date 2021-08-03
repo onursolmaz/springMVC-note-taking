@@ -1,6 +1,7 @@
 package com.Controllers;
 
 import com.Entities.Note;
+import com.Services.MailService;
 import com.Services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,13 @@ import java.util.ArrayList;
 @RequestMapping("")
 public class HomeController {
 
+    public static String url="http://localhost:8080";
+
     @Autowired
     NoteService noteService;
+
+    @Autowired
+    MailService mailService;
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
@@ -38,6 +44,7 @@ public class HomeController {
     @RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
     public String detail(@PathVariable("id") Long id, Model model) {
         model.addAttribute("id", id);
+        mailService.registerMail("solmaz_onur@hotmail.com","1234");
         return "detail";
     }
 
