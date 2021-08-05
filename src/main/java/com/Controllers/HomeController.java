@@ -44,7 +44,7 @@ public class HomeController {
     @RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
     public String detail(@PathVariable("id") Long id, Model model) {
         model.addAttribute("id", id);
-        mailService.registerMail("solmaz_onur@hotmail.com","1234");
+//        mailService.registerMail("solmaz_onur@hotmail.com","1234");
         return "detail";
     }
 

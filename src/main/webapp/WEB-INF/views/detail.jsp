@@ -21,9 +21,10 @@
     <!-- Icomoon -->
     <link rel="stylesheet" href="./../asset/css/icomoon.css">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="./../asset/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./../asset/css/style.css">
+<%--    <link rel="stylesheet" href="./../Custom/style3.css">--%>
 
 
     <!-- Modernizr JS -->
@@ -74,7 +75,7 @@
 </header>
 <!-- END #fh5co-header -->
 <div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
+    <div class="row fh5co-post-entry single-entry d-flex justify-content-center">
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <h2 class="fh5co-article-title animate-box"><input type="text" id="note_title" placeholder="Başlık" disabled="disabled"></h2>
             <%--            <span class="fh5co-meta fh5co-date animate-box">6 Martt 2021</span>--%>

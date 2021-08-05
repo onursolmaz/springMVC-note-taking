@@ -17,10 +17,10 @@ public class MailService {
     public void registerMail(String mail, String key){
 
         SimpleMailMessage email=new SimpleMailMessage();
-        email.setFrom("onursolmaz79@gmail.com");
+        email.setFrom("onursolmaztest@gmail.com");
         email.setTo(mail);
-        email.setSubject("Üyeliğini tamamla");
-        email.setText("Üyeliği tamamlamak için lütfen aşağıdaki linke tıklayınız.\n\n"
+        email.setSubject("Üyeligini Tamamla!");
+        email.setText("Üyeligini tamamlamak için lütfen aşağıdaki linke tıklayınız.\n\n"
                 + HomeController.url+"/reg/"+key);
         mailSender.send(email);
 

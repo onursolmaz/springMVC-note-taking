@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="açıklama" />
     <meta name="keywords" content="arama kelimeleri" />
-    <meta name="author" content="Onur Ciner" />
+    <meta name="author" content="Onur Solmaz" />
 
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -22,15 +22,16 @@
     <!-- Icomoon -->
     <link rel="stylesheet" href="asset/css/icomoon.css">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="asset/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="asset/css/style.css">
+<%--    <link rel="stylesheet" href="./../Custom/style3.css">--%>
 
 
     <!-- Modernizr JS -->
     <script src="asset/js/modernizr-2.6.2.min.js"></script>
-    <script src="Custom/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.0/sweetalert2.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.1/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.1/sweetalert2.css" />
 </head>
 <body>
 <div id="fh5co-offcanvas">

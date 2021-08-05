@@ -1,6 +1,9 @@
 package com.Entities;
+
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,6 +12,7 @@ import java.util.Date;
 @Table(name = "kisiler")
 @Getter
 @Setter
+@ToString
 public class User {
 
     @Id
@@ -26,10 +30,14 @@ public class User {
 
     private Date create_date = new Date();
 
-    private String key;
+    @Column(nullable = true)
+    private String regKey;
 
     private String pass;
 
-    private boolean isActive=false;
+    @Transient  // don't create database as column
+    private String pass2;
+
+    private boolean isActive = false;
 
 }

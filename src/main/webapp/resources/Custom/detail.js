@@ -62,18 +62,18 @@ function succesAlert(){
     Swal.fire(
         'Good job!',
         'Your note has been saved successfully',
-        'success'
+        'success',
     )
 
 }
 
 function errorAlert(){
     Swal.fire(
-        'Good job!',
+        'Opps...!',
         'Your note has been saved successfully',
-        'success'
-    )
+        'error',
 
+    )
 }
 
 function deleteNote() {
@@ -107,7 +107,8 @@ function openModel() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!',
+        customClass: 'sweetalert-lg'
     }).then((result) => {
         if (result.value) {
             deleteNote();
