@@ -6,10 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BLOG</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="açıklama" />
-    <meta name="keywords" content="arama kelimeleri" />
+    <title>Note Taking</title>
+    <link rel="icon" href="./../asset/images/pencil.png">
     <meta name="author" content="Onur Solmaz" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->

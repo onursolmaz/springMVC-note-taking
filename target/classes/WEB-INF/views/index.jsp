@@ -6,10 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BLOG</title>
+    <title>Noke Taking</title>
+    <link rel="icon" href="asset/images/pencil.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="açıklama" />
-    <meta name="keywords" content="arama kelimeleri" />
     <meta name="author" content="Onur Solmaz" />
 
 
@@ -39,9 +38,9 @@
         <figure>
             <img src="https://pbs.twimg.com/profile_images/1353846387406991363/UqSX4NnH_400x400.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
         </figure>
-        <h3 class="heading">Hakkımda</h3>
+        <h3 class="heading">About Me</h3>
         <h2>${user.name} ${user.surname}</h2>
-        <p>Renova Şirketinde Java developer olarak çalışmaktayım.</p>
+        <p>I am working as a Java developer at Renova.</p>
         <ul class="fh5co-social">
             <li><a href="#"><i class="icon-twitter"></i></a></li>
             <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -62,7 +61,7 @@
                 <li><a href="createNote"><i class="icon-plus"></i>Add Note</a></li>
             </ul>
             <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo"><a href="index">MY NOTES</a></h1>
+                <h1 id="fh5co-logo"><a href="/">MY NOTES</a></h1>
             </div>
 
         </div>

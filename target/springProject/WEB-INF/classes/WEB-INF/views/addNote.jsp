@@ -6,10 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BLOG</title>
+    <link rel="icon" href="asset/images/pencil.png">
+    <title>Note Taking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="açıklama" />
-    <meta name="keywords" content="arama kelimeleri" />
     <meta name="author" content="Onur Solmaz" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -42,7 +41,7 @@
         </figure>
         <h3 class="heading">Hakkımda</h3>
         <h2>${user.name} ${user.surname}</h2>
-        <p>Renova Şirketinde Java developer olarak çalışmaktayım.</p>
+        <p>I am working as a Java developer at Renova.</p>
         <ul class="fh5co-social">
             <li><a href="#"><i class="icon-twitter"></i></a></li>
             <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -78,7 +77,7 @@
     <div class="row fh5co-post-entry single-entry d-flex justify-content-center">
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
 
-            <h2 class="fh5co-article-title animate-box"><input type="text" id="note_title" placeholder="Başlık"></h2>
+            <h2 class="fh5co-article-title animate-box"><input type="text" id="note_title" placeholder="Title" autocomplete="off"></h2>
 <%--            <span class="fh5co-meta fh5co-date animate-box">6 Martt 2021</span>--%>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">

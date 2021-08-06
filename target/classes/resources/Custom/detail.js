@@ -57,7 +57,7 @@ function updateNote() {
         data: ser_data,
         success: function (data) {
             getNote();
-            succesAlert();
+            succesAlert('Note has been updated successfully');
         }, error: function (data) {
             errorAlert("Error occurred while updating note");
 
@@ -66,10 +66,10 @@ function updateNote() {
     });
 }
 
-function succesAlert() {
+function succesAlert(message) {
     Swal.fire(
         'Good job!',
-        'Your note has been saved successfully',
+        message,
         'success',
     )
 
@@ -94,7 +94,7 @@ function deleteNote() {
         url: './../deleteNote',
         data: ser_data,
         success: function (data) {
-            succesAlert();
+            succesAlert('Note has been deleted successfully');
             setTimeout(function () {
                 window.history.back();
             }, 2000);
