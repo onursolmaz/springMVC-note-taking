@@ -16,12 +16,12 @@ function addUser() {
         url: 'addUser',
         data: ser_data,
         success: function (data) {
-            if(data=="Passwords not match"){
-                errorAlert();
-            }else if(data=="ERROR"){
-                errorAlert("Error Occurred");
-            }
-            else{
+            alert(data);
+            if (data == "Passwords not match") {
+                errorAlert("Passwords not match !!! ");
+            } else if (data == "ERROR") {
+                errorAlert("Error Occurred!");
+            } else {
                 successAlert();
             }
 
@@ -45,12 +45,12 @@ function login() {
         url: 'loginUser',
         data: ser_data,
         success: function (data) {
-            if(data=="OK"){
+            if (data == "OK") {
                 successLoginAlert();
-                setTimeout(function(){
-                    $(location).attr("href","/")
-                }, 1300);
-            }else if(data=="ERROR"){
+                setTimeout(function () {
+                    $(location).attr("href", "/")
+                }, 1500);
+            } else if (data == "ERROR") {
                 errorAlert("Username or Password incorrect");
             }
         }, error: function (data) {
@@ -60,28 +60,23 @@ function login() {
 }
 
 
-
-
-
-
-
-function successAlert(){
+function successAlert() {
     Swal.fire(
         'Good job!',
-        'Successfully registered Please check the your e-mail for complete the registration',
+        'Successfully, please check your E-mail !!! ',
         'success'
     )
 }
 
-function successLoginAlert(){
+function successLoginAlert() {
     Swal.fire(
         'Good job!',
-        'Successfully logged into the system',
+        'Successfully logged in',
         'success'
     )
 }
 
-function errorAlert(message){
+function errorAlert(message) {
     Swal.fire({
         icon: 'error',
         title: 'Oops...',

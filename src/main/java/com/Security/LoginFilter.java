@@ -43,6 +43,11 @@ public class LoginFilter implements Filter {
             chain.doFilter(request,response);
             return;
         }
+        if(reg.getRequestURI().contains("addUser") || isStaticResource ){
+            chain.doFilter(request,response);
+            return;
+        }
+
 
         User user= (User) reg.getSession().getAttribute("user");
         loggedInUser=user;

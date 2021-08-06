@@ -20,9 +20,8 @@ public class MailService {
         email.setFrom("onursolmaztest@gmail.com");
         email.setTo(mail);
         email.setSubject("Üyeligini Tamamla!");
-        email.setText("Üyeligini tamamlamak için lütfen aşağıdaki linke tıklayınız.\n\n"
+        email.setText("Üyeligini tamamlamak için lütfen asagidaki linke tiklayiniz.\n\n"
                 + HomeController.url+"/reg/"+key);
         mailSender.send(email);
-
     }
 }
