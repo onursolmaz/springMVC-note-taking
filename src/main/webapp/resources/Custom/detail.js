@@ -3,9 +3,9 @@ $(document).ready(function () {
 });
 
 function getNote() {
-   $("#note_title").attr("disabled", true)
-   $("#note_content").attr("disabled", true)
-   $("#updateBtn").html("Update");
+    $("#note_title").attr("disabled", true)
+    $("#note_content").attr("disabled", true)
+    $("#updateBtn").html("Update");
     $.ajax({
         type: "POST",
         url: './../getNote',
@@ -15,14 +15,22 @@ function getNote() {
             $("#note_title").val(data.title);
             $("#note_content").html(data.content);
         }, error: function (data) {
-            alert("Notlar yüklenirken bir hata oluştu");
-        }
+            if (data.responseText == "UNAUTHORIZED") {
+                errorAlert("Unauthorized Request !!!");
+                setTimeout(function () {
+                    window.history.back();
+                }, 2000);
+            }else{
+                alert("Error occurred while getting note");
+            }
 
+        }
     });
 
 }
 
 var updated = false;
+
 function update() {
     if (!updated) {
         $("#note_title").attr("disabled", false)
@@ -31,7 +39,7 @@ function update() {
     } else {
         updateNote()
     }
-    updated=!updated;
+    updated = !updated;
 
 }
 
@@ -51,14 +59,14 @@ function updateNote() {
             getNote();
             succesAlert();
         }, error: function (data) {
-            errorAlert()
+            errorAlert("Error occurred while updating note");
 
         }
 
     });
 }
 
-function succesAlert(){
+function succesAlert() {
     Swal.fire(
         'Good job!',
         'Your note has been saved successfully',
@@ -67,12 +75,11 @@ function succesAlert(){
 
 }
 
-function errorAlert(){
+function errorAlert(message) {
     Swal.fire(
         'Opps...!',
-        'Your note has been saved successfully',
+        message,
         'error',
-
     )
 }
 
@@ -88,11 +95,11 @@ function deleteNote() {
         data: ser_data,
         success: function (data) {
             succesAlert();
-            setTimeout(function(){
+            setTimeout(function () {
                 window.history.back();
             }, 2000);
         }, error: function (data) {
-            errorAlert();
+            errorAlert("Error occurred while deleting note");
         }
 
     });
@@ -114,8 +121,6 @@ function openModel() {
             deleteNote();
         }
     });
-
-
 
 
 }

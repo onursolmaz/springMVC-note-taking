@@ -2,6 +2,7 @@ package com.Services;
 
 import com.Entities.Note;
 import com.Repositories.NoteRepository;
+import com.Security.LoginFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,7 @@ public class NoteService {
     NoteRepository noteRepository;
 
     public Long createNote(Note note, HttpServletRequest request){
-
-        note.setUser_id(1l);
+        note.setUser_id(LoginFilter.loggedInUser.getId());
         return noteRepository.insert(note);
     }
 

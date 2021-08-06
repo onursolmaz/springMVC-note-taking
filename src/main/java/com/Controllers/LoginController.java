@@ -20,41 +20,52 @@ public class LoginController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String login(@RequestParam(value = "status",required = false) String status,Model model){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(@RequestParam(value = "status", required = false) String status, Model model) {
 
-        if(status!=null){
-            if(status.equals("ok"))
-                model.addAttribute("status","Üyeliğiniz başarıyla tamamlandı");
-            else
-                model.addAttribute("status","Hata,tekrar deneyiniz");
+        if (status != null) {
+            if (status.equals("ok")){
+                model.addAttribute("status", "Üyeliğiniz başarıyla tamamlandı !!!");
+                model.addAttribute("alertType","primary");
+            } else{
+                model.addAttribute("status", "Hata, tekrar deneyiniz !!!");
+                model.addAttribute("alertType","danger");
+            }
+
             model.addAttribute("status");
         }
         return "login";
     }
 
-    @RequestMapping(value = "/register",method = RequestMethod.GET)
-    public String register(){
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register() {
 
         return "register";
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        request.getSession().setAttribute("user", null);
+        return "redirect:/login";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/loginUser")
     public ResponseEntity<String> loginUser(@RequestBody User user, HttpServletRequest request) {
 
-        if(userService.findByUsernameAndPass(user)!=null){
+        User loggedInUser = userService.findByUsernameAndPass(user);
+        if (loggedInUser != null) {
+            request.getSession().setAttribute("user", loggedInUser);
             return new ResponseEntity<>("OK", HttpStatus.OK);
         }
-
         return new ResponseEntity<>("ERROR", HttpStatus.OK);
 
     }
 
 
-    @RequestMapping(value = "/reg/{key}",method = RequestMethod.GET)
-    public String regOk(@PathVariable("key") String key, Model model){
+    @RequestMapping(value = "/reg/{key}", method = RequestMethod.GET)
+    public String regOk(@PathVariable("key") String key, Model model) {
 
-        if(userService.findByKey(key))
+        if (userService.findByKey(key))
             return "redirect:/login?status=ok";
 
         return "redirect:/login?status=error";
@@ -64,22 +75,19 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST, value = "/addUser")
     public ResponseEntity<String> addUser(@RequestBody User user, HttpServletRequest request) {
 
-        if(controlUser(user)){
+        if (controlUser(user)) {
             return new ResponseEntity<>("Passwords not match", HttpStatus.OK);
         }
-        if(userService.insert(user).equals(1L)){
+        if (userService.insert(user).equals(1L)) {
             return new ResponseEntity<>("OK", HttpStatus.CREATED);
         }
         return new ResponseEntity<>("ERROR", HttpStatus.CREATED);
     }
 
 
-    private boolean controlUser(User user){
-        return ! user.getPass().equals(user.getPass2());
+    private boolean controlUser(User user) {
+        return !user.getPass().equals(user.getPass2());
     }
-
-
-
 
 
 }

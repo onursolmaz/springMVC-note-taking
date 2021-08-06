@@ -44,14 +44,17 @@
 
 
                 <c:if test="${not empty status}">
-                    <div class="alert alert-primary w-100" role="alert">
-                            ${status}
+                    <div class="alert alert-${alertType} w-100 text-center" role="alert" style="font-size: medium">
+                            ${status} !!!
                     </div
                 </c:if>
 
+                <br>
+                <br>
+
 
 					<span class="login100-form-title p-b-26">
-						Not Alma
+						Note Taking
 					</span>
                 <span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>

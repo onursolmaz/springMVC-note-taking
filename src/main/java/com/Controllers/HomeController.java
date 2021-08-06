@@ -1,8 +1,11 @@
 package com.Controllers;
 
 import com.Entities.Note;
+import com.Entities.User;
+import com.Security.LoginFilter;
 import com.Services.MailService;
 import com.Services.NoteService;
+import com.mysql.cj.log.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
 @RequestMapping("")
 public class HomeController {
 
-    public static String url="http://localhost:8080";
+    public static String url = "http://localhost:8080";
 
     @Autowired
     NoteService noteService;
@@ -33,6 +36,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String index(Model model, HttpServletRequest request) {
         model.addAttribute("notes", noteService.getAll(1l));
+        model.addAttribute("user", request.getSession().getAttribute("user"));
         return "index";
     }
 
@@ -43,8 +47,10 @@ public class HomeController {
 
     @RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
     public String detail(@PathVariable("id") Long id, Model model) {
+        User loggedInUser= LoginFilter.loggedInUser;
+
+        model.addAttribute("user",loggedInUser);
         model.addAttribute("id", id);
-//        mailService.registerMail("solmaz_onur@hotmail.com","1234");
         return "detail";
     }
 
@@ -72,21 +78,31 @@ public class HomeController {
     public ResponseEntity<String> deleteNote(@RequestBody Note note, HttpServletRequest request) {
 
         Note oldNote = noteService.findById(note.getId());
-        noteService.delete(oldNote,request);
+        noteService.delete(oldNote, request);
 
         return new ResponseEntity<>("OK", HttpStatus.CREATED);
     }
 
 
-
     @RequestMapping(method = RequestMethod.POST, value = "/getNotes")
     public ResponseEntity<ArrayList<Note>> getNotes(HttpServletRequest request) {
-        return new ResponseEntity<>(noteService.getAll(1l), HttpStatus.ACCEPTED);
+        User loggedInUser = LoginFilter.loggedInUser;
+
+        if (loggedInUser != null) {
+            return new ResponseEntity<>(noteService.getAll(loggedInUser.getId()), HttpStatus.ACCEPTED);
+        } else
+            return new ResponseEntity("ERROR", HttpStatus.UNAUTHORIZED);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/getNote")
     public ResponseEntity<Note> getNote(@RequestBody String id, HttpServletRequest request) {
-        return new ResponseEntity<>(noteService.findById(Long.parseLong(id)), HttpStatus.ACCEPTED);
+
+        Note note = noteService.findById(Long.valueOf(id));
+
+        if (note.getUser_id().equals(LoginFilter.loggedInUser.getId())) {
+            return new ResponseEntity<>(noteService.findById(Long.valueOf(id)), HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity("UNAUTHORIZED", HttpStatus.UNAUTHORIZED);
     }
 
 }

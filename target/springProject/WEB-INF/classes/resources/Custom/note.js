@@ -67,7 +67,6 @@ function getNotes() {
         }, error: function (data) {
             alert("Notlar yüklenirken bir hata oluştu");
         }
-
     });
 
 }

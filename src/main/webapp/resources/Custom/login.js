@@ -49,7 +49,7 @@ function login() {
                 successLoginAlert();
                 setTimeout(function(){
                     $(location).attr("href","/")
-                }, 2000);
+                }, 1300);
             }else if(data=="ERROR"){
                 errorAlert("Username or Password incorrect");
             }

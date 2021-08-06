@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="asset/css/style.css">
-<%--    <link rel="stylesheet" href="./../Custom/style3.css">--%>
 
 
     <!-- Modernizr JS -->
@@ -39,18 +38,18 @@
     <a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
     <div class="fh5co-bio">
         <figure>
-            <img src="asset/images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
+            <img src="https://pbs.twimg.com/profile_images/1353846387406991363/UqSX4NnH_400x400.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
         </figure>
         <h3 class="heading">Hakkımda</h3>
-        <h2>Onur Solmaz</h2>
-        <p>Bilgisayar Mühendisiyim.Renova Şirketinde Java developer olarak çalışmaktayım.</p>
+        <h2>${user.name} ${user.surname}</h2>
+        <p>Renova Şirketinde Java developer olarak çalışmaktayım.</p>
         <ul class="fh5co-social">
             <li><a href="#"><i class="icon-twitter"></i></a></li>
             <li><a href="#"><i class="icon-facebook"></i></a></li>
             <li><a href="#"><i class="icon-instagram"></i></a></li>
         </ul>
+        <a type="button" href="logout" class="btn btn-primary">Sign out</a>
     </div>
-
 </div>
 
 <!-- END #fh5co-offcanvas -->
