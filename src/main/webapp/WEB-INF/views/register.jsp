@@ -40,26 +40,37 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-form validate-form">
+
 					<span class="login100-form-title p-b-26">
-						Not Alma
+						Note Taking
 					</span>
                 <span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
 					</span>
 
+                <c:if test="${not empty status}">
+                    <div class="alert alert-${alertType} w-100 text-center" role="alert" style="font-size: medium">
+                                                        ${status} !!!
+                    </div
+                </c:if>
+                <br>
+                <br>
+
+
+
                 <div class="wrap-input100 validate-input" data-validate = "Ad Girin">
                     <input class="input100" type="text" name="name" id="name">
-                    <span class="focus-input100" data-placeholder="Adınız"></span>
+                    <span class="focus-input100" data-placeholder="Name"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Soyad Girin">
                     <input class="input100" type="text" name="surname" id="surname">
-                    <span class="focus-input100" data-placeholder="Soyadınız"></span>
+                    <span class="focus-input100" data-placeholder="Surname"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adı Girin">
                     <input class="input100" type="text" name="username" id="username">
-                    <span class="focus-input100" data-placeholder="Kullanıcı Adı"></span>
+                    <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Email Girin">
@@ -72,7 +83,7 @@
 							<i class="zmdi zmdi-eye"></i>
 						</span>
                     <input class="input100" type="password" name="pass" id="pass">
-                    <span class="focus-input100" data-placeholder="Parola"></span>
+                    <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Parola Tekrarı Girin">
@@ -80,20 +91,19 @@
 							<i class="zmdi zmdi-eye"></i>
 						</span>
                     <input class="input100" type="password" name="pass2" id="pass2">
-                    <span class="focus-input100" data-placeholder="Parola Tekrarı"></span>
+                    <span class="focus-input100" data-placeholder="Password again"></span>
                 </div>
 
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" id="registerBtn" onclick="addUser()">
-                            Kayıt Ol
+                            Sing Up
                         </button>
                     </div>
                 </div>
-
                 <div class="text-center p-t-115">
-                    <a href="login">Giriş Yap</a>
+                    <a href="login">Login</a>
                 </div>
             </div>
         </div>

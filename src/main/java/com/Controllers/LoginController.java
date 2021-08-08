@@ -24,22 +24,26 @@ public class LoginController {
     public String login(@RequestParam(value = "status", required = false) String status, Model model) {
 
         if (status != null) {
-            if (status.equals("ok")){
-                model.addAttribute("status", "Üyeliğiniz başarıyla tamamlandı !!!");
-                model.addAttribute("alertType","primary");
-            } else{
-                model.addAttribute("status", "Hata, tekrar deneyiniz !!!");
-                model.addAttribute("alertType","danger");
+            if (status.equals("ok")) {
+                model.addAttribute("status", "Registration Successful !!!");
+                model.addAttribute("alertType", "primary");
+            }else {
+                model.addAttribute("status", "Error, please repeat again !!!");
+                model.addAttribute("alertType", "danger");
             }
-
-            model.addAttribute("status");
         }
         return "login";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register() {
+    public String register(@RequestParam(value = "status", required = false) String status, Model model) {
 
+        if(status!=null){
+            if (status.equals("checkMail") ) {
+                model.addAttribute("status", " Successful ! <br> Please check your e-mail.");
+                model.addAttribute("alertType", "primary ");
+            }
+        }
         return "register";
     }
 

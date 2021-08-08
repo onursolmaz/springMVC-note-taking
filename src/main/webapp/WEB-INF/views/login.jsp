@@ -45,7 +45,7 @@
 
                 <c:if test="${not empty status}">
                     <div class="alert alert-${alertType} w-100 text-center" role="alert" style="font-size: medium">
-                            ${status} !!!
+                            ${status}
                     </div
                 </c:if>
 
@@ -60,17 +60,17 @@
 						<i class="zmdi zmdi-font"></i>
 					</span>
 
-                <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adı Girin">
+                <div class="wrap-input100 validate-input" data-validate = "Enter your username">
                     <input class="input100" type="text" name="username" id="username">
-                    <span class="focus-input100" data-placeholder="Kullanıcı Adı"></span>
+                    <span class="focus-input100" data-placeholder="Username"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="Parola Girin">
+                <div class="wrap-input100 validate-input" data-validate="Enter your password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
                     <input class="input100" type="password" name="pass" id="pass">
-                    <span class="focus-input100" data-placeholder="Parola"></span>
+                    <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
 
 
@@ -78,13 +78,13 @@
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" id="registerBtn" onclick="login()">
-                            Giriş
+                            Login
                         </button>
                     </div>
                 </div>
 
                 <div class="text-center p-t-115">
-                    <a href="register">Üye Ol</a>
+                    <a href="register">Sing Up</a>
                 </div>
             </div>
         </div>

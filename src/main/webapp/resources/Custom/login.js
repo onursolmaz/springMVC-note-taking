@@ -16,13 +16,14 @@ function addUser() {
         url: 'addUser',
         data: ser_data,
         success: function (data) {
-            alert(data);
             if (data == "Passwords not match") {
                 errorAlert("Passwords not match !!! ");
             } else if (data == "ERROR") {
                 errorAlert("Error Occurred!");
             } else {
                 successAlert();
+                goLoginPage();
+
             }
 
         }, error: function (data) {
@@ -30,6 +31,12 @@ function addUser() {
         }
 
     });
+}
+
+function goLoginPage(){
+    setTimeout(function () {
+        $(location).attr("href", "/register?status=checkMail")
+    }, 1350);
 }
 
 function login() {
